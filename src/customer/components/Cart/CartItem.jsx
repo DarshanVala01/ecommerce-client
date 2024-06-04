@@ -17,7 +17,7 @@ const CartItem = () => {
 
           <div className="ml-5 space-y-1">
             <p className="font-semibold">Project Title Here</p>
-            <p className="opacity-70 ">Size :L , White</p>
+            <p className="opacity-70 ">Size : L , White</p>
             <p className="opacity-70 ">Seller : BrandName,Darshan Vala</p>
 
             <div className="flex space-x-3 items-center text-lg lg:text-text-xl text-gray-900 pt-6">
