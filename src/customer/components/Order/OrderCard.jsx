@@ -1,13 +1,18 @@
 import { Grid } from "@mui/material";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
+import { useNavigate } from "react-router-dom";
 
 const OrderCard = () => {
+  const navigate = useNavigate();
   return (
     <>
-      <div className="p-5 shadow-lg hover:shadow-md hover:shadow-black border my-3">
+      <div
+        onClick={() => navigate(`/account/order/${1}`)}
+        className="p-5 shadow-lg hover:shadow-md hover:shadow-black border my-3 cursor-pointer "
+      >
         <Grid container spacing={2} sx={{ justifyContent: "space-between" }}>
           <Grid item xs={6}>
-            <div className="flex cursor-pointer ">
+            <div className="flex ">
               <img
                 className="w-[5rem] h-[5rem] object-cover object-top"
                 src="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGNsb3RoZXN8ZW58MHx8MHx8fDA%3D"

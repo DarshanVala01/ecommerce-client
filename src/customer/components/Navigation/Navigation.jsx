@@ -10,6 +10,7 @@ import {
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { deepPurple } from "@mui/material/colors";
 import { navigation } from "./navigationData";
+import { useNavigate } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -17,6 +18,8 @@ function classNames(...classes) {
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
@@ -38,17 +41,15 @@ export default function Navigation() {
 
   const handleCategoryClick = (category, section, item, close) => {
     close();
+    navigate(`/${category.id}/${section.id}/${item.id}`);
   };
 
   const handleLogout = () => {
     handleCloseUserMenu();
     dispatch(logout());
   };
-  const handleMyOrderClick = () => {
-    handleCloseUserMenu();
-    auth.user?.role === "ROLE_ADMIN"
-      ? navigate("/admin")
-      : navigate("/account/order");
+  const handleMyOrders = () => {
+    navigate("/account/order");
   };
 
   return (
@@ -414,10 +415,8 @@ export default function Navigation() {
                           "aria-labelledby": "basic-button",
                         }}
                       >
-                        <MenuItem onClick={handleMyOrderClick}>
-                          Profile
-                        </MenuItem>
-                        <MenuItem>My Orders</MenuItem>
+                        <MenuItem>Profile</MenuItem>
+                        <MenuItem onClick={handleMyOrders}>My Orders</MenuItem>
                         <MenuItem>Logout</MenuItem>
                       </Menu>
                     </div>

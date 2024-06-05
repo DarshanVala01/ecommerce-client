@@ -1,7 +1,13 @@
 import { Button, Divider } from "@mui/material";
 import CartItem from "./CartItem";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate("/checkout?step=2");
+  };
   return (
     <>
       <div>
@@ -38,6 +44,7 @@ const Cart = () => {
               </div>
               <div className="m-4 justify-center items-center">
                 <Button
+                  onClick={handleCheckout}
                   sx={{
                     bgcolor: "#9155fd",
                     px: "2rem",
